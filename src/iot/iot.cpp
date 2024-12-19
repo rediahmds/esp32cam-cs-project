@@ -27,3 +27,8 @@ void initBlynk()
     char auth[] = BLYNK_AUTH_TOKEN;
     Blynk.config((char *)auth, BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
 }
+
+void runBlynk()
+{
+    Blynk.run();
+}

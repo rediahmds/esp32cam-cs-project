@@ -3,5 +3,6 @@
 
 void initWiFi(const char *apName = "K3-Miawww 😽", const char *apPassword = "miaw123");
 void initBlynk();
+void runBlynk();
 
 #endif
