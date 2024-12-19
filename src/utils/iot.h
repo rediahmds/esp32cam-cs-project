@@ -1,6 +1,6 @@
 #ifndef IOT_H
 #define IOT_H
 
-void initWiFi(char *apName = "K3-Miawww 😽", char *apPassword = "miaw123");
+void initWiFi(const char *apName = "K3-Miawww 😽", const char *apPassword = "miaw123");
 
 #endif

@@ -2,7 +2,7 @@
 
 WiFiManager wm;
 
-void initWiFi(char *apName = "K3-Miawww 😽", char *apPassword = "miaw123")
+void initWiFi(const char *apName = "K3-Miawww 😽", const char *apPassword = "miaw123")
 {
     Serial.println("[INFO] Connecting to a WiFi network...");
     bool isConnected = wm.autoConnect(apName, apPassword);
