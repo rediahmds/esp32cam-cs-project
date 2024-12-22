@@ -4,3 +4,6 @@
 #define BLYNK_AUTH_TOKEN "PASTE YOUR BLYNK AUTHENTICATION TOKEN"
 #define BLYNK_CUSTOM_HOST_NAME "your.custom.hostname"
 #define BLYNK_CUSTOM_PORT "YOUR PORT NUMBER"
+
+#define MANUAL_SSID "SSID Name"
+#define MANUAL_PASSWORD "wifi password"

@@ -22,6 +22,23 @@ void initWiFi(const char *apName = "K3-Miawww 😽", const char *apPassword = "m
     }
 }
 
+void initWiFiManually(char *ssid, char *password)
+{
+    WiFi.mode(WIFI_STA); // Optional
+    WiFi.begin(ssid, password);
+    Serial.println("[INFO] Connecting");
+
+    while (WiFi.status() != WL_CONNECTED)
+    {
+        Serial.print(".");
+        delay(100);
+    }
+
+    Serial.println("\n[SUCCESS] Connected to the WiFi network");
+    Serial.print("IP: ");
+    Serial.println(WiFi.localIP());
+}
+
 void initBlynk()
 {
     char auth[] = BLYNK_AUTH_TOKEN;
