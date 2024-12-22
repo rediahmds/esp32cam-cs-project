@@ -5,13 +5,16 @@
 
 WiFiManager wm;
 
-void initWiFi(const char *apName = "K3-Miawww 😽", const char *apPassword = "miaw123")
+void initWiFi(const char *apName, const char *apPassword)
 {
+    Serial.println("[INFO] Using WiFi Manager (Automatic mode)...");
     Serial.println("[INFO] Connecting to a WiFi network...");
     bool isConnected = wm.autoConnect(apName, apPassword);
     if (isConnected)
     {
         Serial.println("[SUCCESS] Connected to a WiFi network! Yeayy!");
+        IPAddress ipv4 = WiFi.localIP();
+        Serial.printf("[INFO] IP address: %d.%d.%d.%d", ipv4[0], ipv4[1], ipv4[2], ipv4[3]);
     }
     else
     {
@@ -24,6 +27,7 @@ void initWiFi(const char *apName = "K3-Miawww 😽", const char *apPassword = "m
 
 void initWiFiManually(char *ssid, char *password)
 {
+    Serial.println("[INFO] Using Manual mode");
     WiFi.mode(WIFI_STA); // Optional
     WiFi.begin(ssid, password);
     Serial.println("[INFO] Connecting");
