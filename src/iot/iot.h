@@ -7,5 +7,6 @@ void initWiFi(const char *apName = "K3-Miawww", const char *apPassword = "miaw12
 void initWiFiManually(char *ssid = MANUAL_SSID, char *password = MANUAL_PASSWORD);
 void initBlynk();
 void runBlynk();
+bool checkInternetAvailability();
 
 #endif

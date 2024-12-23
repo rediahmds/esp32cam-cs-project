@@ -2,19 +2,40 @@
 #include <WiFiManager.h>
 #include <Ethernet.h>
 #include <BlynkSimpleEthernet.h>
+#include <ESP32Ping.h>
 
 WiFiManager wm;
 
+bool checkInternetAvailability()
+{
+    Serial.println("[INFO] Checking internet availability...");
+    bool internetAvailable = Ping.ping("iot.serangkota.go.id:8080", 5);
+    return internetAvailable;
+}
+
 void initWiFi(const char *apName, const char *apPassword)
 {
+    WiFi.mode(WIFI_STA);
     Serial.println("[INFO] Using WiFi Manager (Automatic mode)...");
     Serial.println("[INFO] Connecting to a WiFi network...");
     bool isConnected = wm.autoConnect(apName, apPassword);
     if (isConnected)
     {
         Serial.println("[SUCCESS] Connected to a WiFi network! Yeayy!");
-        IPAddress ipv4 = WiFi.localIP();
-        Serial.printf("[INFO] IP address: %d.%d.%d.%d", ipv4[0], ipv4[1], ipv4[2], ipv4[3]);
+        bool internetAvailable = checkInternetAvailability();
+        if (internetAvailable)
+        {
+            Serial.println("[SUCCESS] Internet is available! Yeayy!");
+            IPAddress ipv4 = WiFi.localIP();
+            Serial.printf("[INFO] IP address: %d.%d.%d.%d", ipv4[0], ipv4[1], ipv4[2], ipv4[3]);
+        }
+        else
+        {
+            Serial.println("[**FAILED**] Internet is not available :(");
+            Serial.println("[INFO] Resetting WiFi settings...");
+            wm.resetSettings();
+            wm.reboot();
+        }
     }
     else
     {
@@ -28,7 +49,7 @@ void initWiFi(const char *apName, const char *apPassword)
 void initWiFiManually(char *ssid, char *password)
 {
     Serial.println("[INFO] Using Manual mode");
-    WiFi.mode(WIFI_STA); // Optional
+    WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, password);
     Serial.println("[INFO] Connecting");
 
@@ -53,3 +74,4 @@ void runBlynk()
 {
     Blynk.run();
 }
+
