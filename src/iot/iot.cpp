@@ -9,16 +9,17 @@ WiFiManager wm;
 bool checkInternetAvailability()
 {
     Serial.println("[INFO] Checking internet availability...");
-    bool internetAvailable = Ping.ping("iot.serangkota.go.id:8080", 5);
+    bool internetAvailable = Ping.ping((char*)BLYNK_CUSTOM_HOST_NAME, 5);
     return internetAvailable;
 }
 
-void initWiFi(const char *apName, const char *apPassword)
+void initWiFi()
 {
     WiFi.mode(WIFI_STA);
     Serial.println("[INFO] Using WiFi Manager (Automatic mode)...");
     Serial.println("[INFO] Connecting to a WiFi network...");
-    bool isConnected = wm.autoConnect(apName, apPassword);
+    char *apName = (char *)ACCESS_POINT_NAME;
+    bool isConnected = wm.autoConnect(apName, (char *)ACCESS_POINT_PASSWORD);
     if (isConnected)
     {
         Serial.println("[SUCCESS] Connected to a WiFi network! Yeayy!");
@@ -67,7 +68,7 @@ void initWiFiManually(char *ssid, char *password)
 void initBlynk()
 {
     char auth[] = BLYNK_AUTH_TOKEN;
-    Blynk.config((char *)auth, BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
+    Blynk.config((char *)auth, (char *)BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
 }
 
 void runBlynk()

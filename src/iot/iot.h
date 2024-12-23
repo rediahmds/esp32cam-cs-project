@@ -3,8 +3,8 @@
 
 #include "credentials.h"
 
-void initWiFi(const char *apName = "K3-Miawww", const char *apPassword = "miaw123");
-void initWiFiManually(char *ssid = MANUAL_SSID, char *password = MANUAL_PASSWORD);
+void initWiFi();
+void initWiFiManually(char *ssid = (char *)MANUAL_SSID, char *password = (char *)MANUAL_PASSWORD);
 void initBlynk();
 void runBlynk();
 bool checkInternetAvailability();
