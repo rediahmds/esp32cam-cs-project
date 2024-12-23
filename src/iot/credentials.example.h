@@ -7,3 +7,5 @@
 
 #define MANUAL_SSID "SSID Name"
 #define MANUAL_PASSWORD "wifi password"
+#define ACCESS_POINT_NAME "AP Name"
+#define ACCESS_POINT_PASSWORD "AP Password"
