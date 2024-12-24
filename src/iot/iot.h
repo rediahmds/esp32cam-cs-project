@@ -10,5 +10,6 @@ void runBlynk();
 bool checkInternetAvailability();
 void testBlynk();
 void sendCamStatusMessage(const char *message);
+void sendStreamURLBlynk(char *url);
 
 #endif

@@ -87,3 +87,7 @@ void testBlynk()
     delay(1000);
 }
 
+void sendStreamURLBlynk(char *url)
+{
+    Blynk.virtualWrite(V2, url);
+}
