@@ -13,6 +13,11 @@ bool checkInternetAvailability()
     return internetAvailable;
 }
 
+void sendCamStatusMessage(const char *message)
+{
+    Blynk.virtualWrite(V1, message);
+}
+
 void initWiFi()
 {
     WiFi.mode(WIFI_STA);
@@ -69,6 +74,7 @@ void initBlynk()
 {
     Blynk.config((char *)BLYNK_AUTH_TOKEN, (char *)BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
     Blynk.connect();
+    sendCamStatusMessage("Connected to Blynk");
 }
 
 void runBlynk()
@@ -81,3 +87,4 @@ void testBlynk()
     Blynk.virtualWrite(V0, "K3-Miaww v2.1");
     delay(1000);
 }
+

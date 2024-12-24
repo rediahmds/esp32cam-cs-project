@@ -9,5 +9,6 @@ void initBlynk();
 void runBlynk();
 bool checkInternetAvailability();
 void testBlynk();
+void sendCamStatusMessage(const char *message);
 
 #endif
