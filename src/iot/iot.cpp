@@ -26,6 +26,7 @@ void sendSignalStrengthBlynk(char quality[])
 
 void watchSignalStrength()
 {
+    // TODO: Fix stopped sending when a client is streaming
     int strength = WiFi.RSSI();
     char messageQuality[64];
     if (strength > -30)
@@ -125,7 +126,13 @@ void testBlynk()
     delay(1000);
 }
 
+void setStreamURLBlynkProperty(char *url)
+{
+    Blynk.setProperty(V4, "url", url);
+}
+
 void sendStreamURLBlynk(char *url)
 {
     Blynk.virtualWrite(V2, url);
+    setStreamURLBlynkProperty(url);
 }

@@ -13,6 +13,7 @@ void runBlynk();
 void testBlynk();
 void sendNetworkNameBlynk(const char *name);
 void sendStreamURLBlynk(char *url);
+void setStreamURLBlynkProperty(char *url);
 void sendSignalStrengthBlynk(char quality[]);
 
 #endif
