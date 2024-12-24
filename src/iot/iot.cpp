@@ -78,6 +78,6 @@ void runBlynk()
 
 void testBlynk()
 {
-    Blynk.virtualWrite(V0, "Hello, Blynk! - ESP32-CAM");
+    Blynk.virtualWrite(V0, "K3-Miaww v2.1");
     delay(1000);
 }
