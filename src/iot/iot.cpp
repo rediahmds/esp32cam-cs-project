@@ -1,7 +1,7 @@
 #include "credentials.h"
 #include <WiFiManager.h>
 #include <Ethernet.h>
-#include <BlynkSimpleEthernet.h>
+#include "BlynkSimpleEsp32.h"
 #include <ESP32Ping.h>
 
 WiFiManager wm;
@@ -67,8 +67,7 @@ void initWiFiManually(char *ssid, char *password)
 
 void initBlynk()
 {
-    char auth[] = BLYNK_AUTH_TOKEN;
-    Blynk.config((char *)auth, (char *)BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
+    Blynk.config((char *)BLYNK_AUTH_TOKEN, (char *)BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
     Blynk.connect();
 }
 
@@ -79,9 +78,6 @@ void runBlynk()
 
 void testBlynk()
 {
-    Serial.println("[INFO] Testing Blynk...");
     Blynk.virtualWrite(V0, "Hello, Blynk! - ESP32-CAM");
     delay(1000);
-    Serial.println("[SUCCESS] Blynk is working fine!");
 }
-
