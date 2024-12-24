@@ -13,9 +13,9 @@ bool checkInternetAvailability()
     return internetAvailable;
 }
 
-void sendCamStatusMessage(const char *message)
+void sendNetworkNameBlynk(const char *name)
 {
-    Blynk.virtualWrite(V1, message);
+    Blynk.virtualWrite(V1, name);
 }
 
 void initWiFi()
@@ -23,17 +23,22 @@ void initWiFi()
     WiFi.mode(WIFI_STA);
     Serial.println("[INFO] Using WiFi Manager (Automatic mode)...");
     Serial.println("[INFO] Connecting to a WiFi network...");
+
     char *apName = (char *)ACCESS_POINT_NAME;
     bool isConnected = wm.autoConnect(apName, (char *)ACCESS_POINT_PASSWORD);
+
     if (isConnected)
     {
         Serial.println("[SUCCESS] Connected to a WiFi network! Yeayy!");
+
         bool internetAvailable = checkInternetAvailability();
+
         if (internetAvailable)
         {
             Serial.println("[SUCCESS] Internet is available! Yeayy!");
             IPAddress ipv4 = WiFi.localIP();
             Serial.printf("[INFO] IP address: %d.%d.%d.%d", ipv4[0], ipv4[1], ipv4[2], ipv4[3]);
+            // TODO: Send network name to Blynk
         }
         else
         {
@@ -83,7 +88,7 @@ void runBlynk()
 
 void testBlynk()
 {
-    Blynk.virtualWrite(V0, "K3-Miaww v2.1");
+    Blynk.virtualWrite(V0, "K3-Miaww v2.2");
     delay(1000);
 }
 

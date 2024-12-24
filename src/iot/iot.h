@@ -9,7 +9,7 @@ void initBlynk();
 void runBlynk();
 bool checkInternetAvailability();
 void testBlynk();
-void sendCamStatusMessage(const char *message);
+void sendNetworkNameBlynk(const char *name);
 void sendStreamURLBlynk(char *url);
 
 #endif
