@@ -74,7 +74,6 @@ void initBlynk()
 {
     Blynk.config((char *)BLYNK_AUTH_TOKEN, (char *)BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
     Blynk.connect();
-    sendCamStatusMessage("Connected to Blynk");
 }
 
 void runBlynk()
