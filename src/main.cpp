@@ -21,4 +21,5 @@ void loop()
 {
   runBlynk();
   handleClient();
+  testBlynk();
 }

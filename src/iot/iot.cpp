@@ -69,10 +69,19 @@ void initBlynk()
 {
     char auth[] = BLYNK_AUTH_TOKEN;
     Blynk.config((char *)auth, (char *)BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
+    Blynk.connect();
 }
 
 void runBlynk()
 {
     Blynk.run();
+}
+
+void testBlynk()
+{
+    Serial.println("[INFO] Testing Blynk...");
+    Blynk.virtualWrite(V0, "Hello, Blynk! - ESP32-CAM");
+    delay(1000);
+    Serial.println("[SUCCESS] Blynk is working fine!");
 }
 

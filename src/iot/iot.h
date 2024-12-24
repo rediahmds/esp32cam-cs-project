@@ -8,5 +8,6 @@ void initWiFiManually(char *ssid = (char *)MANUAL_SSID, char *password = (char *
 void initBlynk();
 void runBlynk();
 bool checkInternetAvailability();
+void testBlynk();
 
 #endif
