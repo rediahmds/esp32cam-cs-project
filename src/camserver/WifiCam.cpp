@@ -8,7 +8,6 @@ WebServer server(80);
 
 void initCam(int minWidth, int minHeight, int quality)
 {
-	sendCamStatusMessage("Initializing...");
 	Resolution initialResolution = Resolution::find(minWidth, minHeight);
 
 	Config config;
@@ -21,12 +20,10 @@ void initCam(int minWidth, int minHeight, int quality)
 	{
 		Serial.println("[FAILED] Camera cannot be started :(");
 		Serial.println("[INFO] Restarting board in 3s...");
-		sendCamStatusMessage("Cannot be started :(");
 		delay(3000);
 		ESP.restart();
 	}
 	Serial.println("[SUCCESS] Camera initialized. Hurrayy :)");
-	sendCamStatusMessage("Initialized");
 }
 
 void beginServer()
