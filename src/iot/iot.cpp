@@ -18,6 +18,39 @@ void sendNetworkNameBlynk(const char *name)
     Blynk.virtualWrite(V1, name);
 }
 
+void sendSignalStrengthBlynk(char quality[])
+{
+    Blynk.virtualWrite(V3, quality);
+    delay(1000);
+}
+
+void watchSignalStrength()
+{
+    int strength = WiFi.RSSI();
+    char messageQuality[64];
+    if (strength > -30)
+    {
+        sniprintf(messageQuality, sizeof(messageQuality), "Excellent (%d)", strength);
+    }
+    else if (strength > -60)
+    {
+        snprintf(messageQuality, sizeof(messageQuality), "Good (%d)", strength);
+    }
+    else if (strength > -70)
+    {
+        snprintf(messageQuality, sizeof(messageQuality), "Weak (%d)", strength);
+    }
+    else if (strength > -80)
+    {
+        snprintf(messageQuality, sizeof(messageQuality), "Very Weak (%d)", strength);
+    }
+    else
+    {
+        snprintf(messageQuality, sizeof(messageQuality), "Unusable (%d)", strength);
+    }
+    sendSignalStrengthBlynk(messageQuality);
+}
+
 void initWiFi()
 {
     WiFi.mode(WIFI_STA);
