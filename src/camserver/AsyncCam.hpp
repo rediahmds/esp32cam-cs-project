@@ -16,7 +16,7 @@ extern AsyncWebServer server;
 
 void addRequestHandlers();
 
-void initCam(int minWidth = 800, int minHeight = 600, int quality = 90);
+void initCam(int minWidth = 800, int minHeight = 600, int quality = 80);
 void beginServer();
 void handleClient();
 void showStreamURL();
