@@ -46,6 +46,6 @@ void showStreamURL()
 {
 	IPAddress ipv4 = WiFi.localIP();
 	char url[64];
-	snprintf(url, sizeof(url), "http://%d.%d.%d.%d/640x480.mjpeg", ipv4[0], ipv4[1], ipv4[2], ipv4[3]);
+	snprintf(url, sizeof(url), "http://%d.%d.%d.%d/cam.mjpeg", ipv4[0], ipv4[1], ipv4[2], ipv4[3]);
 	sendStreamURLBlynk(url);
 }
