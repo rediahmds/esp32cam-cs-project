@@ -22,5 +22,5 @@ void loop()
   runBlynk();
   handleClient();
   watchSignalStrength();
-  // testBlynk();
+  testBlynk();
 }

@@ -1,6 +1,7 @@
 #include "WifiCam.hpp"
 #include <WiFi.h>
 #include "iot/iot.h"
+#include <ElegantOTA.h>
 
 using namespace esp32cam;
 
@@ -28,12 +29,14 @@ void initCam(int minWidth, int minHeight, int quality)
 
 void beginServer()
 {
+	ElegantOTA.begin(&server);
 	server.begin();
 }
 
 void handleClient()
 {
 	server.handleClient();
+	ElegantOTA.loop();
 }
 
 void showStreamURL()

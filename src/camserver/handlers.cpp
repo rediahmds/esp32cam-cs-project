@@ -4,7 +4,7 @@
 
 static const char FRONTPAGE[] = R"EOT(
 <!doctype html>
-<title>esp32cam WifiCam example</title>
+<title>esp32cam WifiCam K3-Proyek SK</title>
 <style>
 table,th,td { border: solid 1px #000000; border-collapse: collapse; }
 th,td { padding: 0.4rem; }
@@ -12,7 +12,7 @@ a { text-decoration: none; }
 footer { margin-top: 1rem; }
 </style>
 <body>
-<h1>esp32cam WifiCam example</h1>
+<h1>esp32cam WifiCam K3-Proyek SK</h1>
 <table>
 <thead>
 <tr><th>BMP<th>JPG<th>MJPEG
