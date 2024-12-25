@@ -125,7 +125,7 @@ void runBlynk()
 
 void testBlynk()
 {
-    Blynk.virtualWrite(V0, "K3-Miaww v3.1");
+    Blynk.virtualWrite(V0, "K3-Miaww v3");
     delay(1000);
 }
 
