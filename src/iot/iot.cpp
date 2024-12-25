@@ -5,6 +5,7 @@
 #include <ESP32Ping.h>
 
 WiFiManager wm;
+BlynkTimer blynkTimer;
 
 bool checkInternetAvailability()
 {
@@ -113,11 +114,13 @@ void initBlynk()
 {
     Blynk.config((char *)BLYNK_AUTH_TOKEN, (char *)BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
     Blynk.connect();
+    blynkTimer.setInterval(1000L, watchSignalStrength);
 }
 
 void runBlynk()
 {
     Blynk.run();
+    blynkTimer.run();
 }
 
 void testBlynk()
