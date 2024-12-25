@@ -1,10 +1,13 @@
-#include "WifiCam.hpp"
+#include "AsyncCam.hpp"
 #include <WiFi.h>
 #include "iot/iot.h"
 
 using namespace esp32cam;
 
-WebServer server(80);
+Resolution initialResolution = esp32cam::Resolution::find(800, 600);
+Resolution currentResolution = initialResolution;
+
+AsyncWebServer server(80);
 
 void initCam(int minWidth, int minHeight, int quality)
 {
@@ -33,7 +36,10 @@ void beginServer()
 
 void handleClient()
 {
-	server.handleClient();
+	// esp32cam-asyncweb.h depends on FreeRTOS task API including vTaskDelete, so you must have a
+	// non-zero delay in the loop() function; otherwise, FreeRTOS kernel memory cannot be freed
+	// properly and the system would run out of memory.
+	delay(1);
 }
 
 void showStreamURL()
