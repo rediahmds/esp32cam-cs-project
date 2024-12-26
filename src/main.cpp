@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "iot/iot.h"
-#include "camserver/WifiCam.hpp"
+#include "camserver/AsyncCam.hpp"
 
 void setup()
 {
