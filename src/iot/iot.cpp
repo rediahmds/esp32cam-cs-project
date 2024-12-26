@@ -27,7 +27,6 @@ void sendSignalStrengthBlynk(char quality[])
 
 void watchSignalStrength()
 {
-    // TODO: Fix stopped sending when a client is streaming
     int strength = WiFi.RSSI();
     char messageQuality[64];
     if (strength > -30)
