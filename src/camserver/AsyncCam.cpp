@@ -1,6 +1,7 @@
 #include "AsyncCam.hpp"
 #include <WiFi.h>
 #include "iot/iot.h"
+#include "ota/ota.h"
 
 using namespace esp32cam;
 
@@ -31,11 +32,13 @@ void initCam(int minWidth, int minHeight, int quality)
 
 void beginServer()
 {
+	beginOTA(&server);
 	server.begin();
 }
 
 void handleClient()
 {
+	loopOTA();
 	// esp32cam-asyncweb.h depends on FreeRTOS task API including vTaskDelete, so you must have a
 	// non-zero delay in the loop() function; otherwise, FreeRTOS kernel memory cannot be freed
 	// properly and the system would run out of memory.
