@@ -4,3 +4,6 @@
 .vscode/launch.json
 .vscode/ipch
 src/**/credentials*
+
+# Ignore the platformio_version_increment submodule directory
+platformio_version_increment/
