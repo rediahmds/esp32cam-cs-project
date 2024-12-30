@@ -7,4 +7,4 @@ src/**/credentials*
 .version_no_increment
 
 # Ignore the platformio_version_increment submodule directory
-platformio_version_increment/
+# platformio_version_increment/
