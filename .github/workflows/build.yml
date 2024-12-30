@@ -27,6 +27,8 @@ jobs:
         submodules: 'true'
     - name: Initilize and update submodules
       run: git submodule update --init --recursive
+    - name: List project directory
+      run: ls -la
     - name: Set up Python
       uses: actions/setup-python@v1
     - name: Install dependencies
