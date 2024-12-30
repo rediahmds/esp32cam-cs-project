@@ -32,6 +32,12 @@ jobs:
         git submodule update --init --recursive
     - name: List project directory
       run: ls -la
+    - name: Create src/iot/credentials.h
+      run: |
+        echo "#define #define BLYNK_PRINT Serial" > src/iot/credentials.h
+        echo "#define BLYNK_AUTH_TOKEN \"${{ secrets.BLYNK_AUTH_TOKEN }}\"" >> src/iot/credentials.h
+        echo "#define BLYNK_CUSTOM_HOST_NAME \"${{ secrets.BLYNK_CUSTOM_HOST_NAME }}\"" >> src/iot/credentials.h
+        echo "#define BLYNK_CUSTOM_PORT ${{ secrets.BLYNK_CUSTOM_PORT }}" >> src/iot/credentials.h
     - name: Set up Python
       uses: actions/setup-python@v1
     - name: Install dependencies
