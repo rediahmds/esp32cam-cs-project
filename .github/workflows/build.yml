@@ -42,6 +42,11 @@ jobs:
         echo "#define MANUAL_PASSWORD \"your_password\"" >> src/iot/credentials.h
         echo "#define ACCESS_POINT_NAME \"your_ap_ssid\"" >> src/iot/credentials.h
         echo "#define ACCESS_POINT_PASSWORD \"your_ap_password\"" >> src/iot/credentials.h
+
+    - name: Create src/ota/credentials.h
+      run: |
+        echo "#define OTA_USERNAME \"ota_user\"" > src/ota/credentials.h
+        echo "#define OTA_PASSWORD \"ota_password\"" >> src/ota/credentials.h
     - name: Set up Python
       uses: actions/setup-python@v1
     - name: Install dependencies
