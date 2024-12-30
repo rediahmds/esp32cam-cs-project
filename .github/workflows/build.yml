@@ -38,6 +38,10 @@ jobs:
         echo "#define BLYNK_AUTH_TOKEN \"${{ secrets.BLYNK_AUTH_TOKEN }}\"" >> src/iot/credentials.h
         echo "#define BLYNK_CUSTOM_HOST_NAME \"${{ secrets.BLYNK_CUSTOM_HOST_NAME }}\"" >> src/iot/credentials.h
         echo "#define BLYNK_CUSTOM_PORT ${{ secrets.BLYNK_CUSTOM_PORT }}" >> src/iot/credentials.h
+        echo "#define MANUAL_SSID \"your_ssid\"" >> src/iot/credentials.h
+        echo "#define MANUAL_PASSWORD \"your_password\"" >> src/iot/credentials.h
+        echo "#define ACCESS_POINT_NAME \"your_ap_ssid\"" >> src/iot/credentials.h
+        echo "#define ACCESS_POINT_PASSWORD \"your_ap_password\"" >> src/iot/credentials.h
     - name: Set up Python
       uses: actions/setup-python@v1
     - name: Install dependencies
