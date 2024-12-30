@@ -3,6 +3,7 @@
 #include <Ethernet.h>
 #include "BlynkSimpleEsp32.h"
 #include <ESP32Ping.h>
+#include "Version.h"
 
 WiFiManager wm;
 BlynkTimer blynkTimer;
@@ -124,7 +125,9 @@ void runBlynk()
 
 void testBlynk()
 {
-    Blynk.virtualWrite(V0, "K3-Miaww-OTA v3.1");
+    char version[64];
+    sniprintf(version, sizeof(version), "v%s", VERSION);
+    Blynk.virtualWrite(V0, version);
     delay(1000);
 }
 
