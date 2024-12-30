@@ -3,8 +3,10 @@
 #include <Ethernet.h>
 #include "BlynkSimpleEsp32.h"
 #include <ESP32Ping.h>
+#include "Version.h"
 
 WiFiManager wm;
+BlynkTimer blynkTimer;
 
 bool checkInternetAvailability()
 {
@@ -26,7 +28,6 @@ void sendSignalStrengthBlynk(char quality[])
 
 void watchSignalStrength()
 {
-    // TODO: Fix stopped sending when a client is streaming
     int strength = WiFi.RSSI();
     char messageQuality[64];
     if (strength > -30)
@@ -113,16 +114,20 @@ void initBlynk()
 {
     Blynk.config((char *)BLYNK_AUTH_TOKEN, (char *)BLYNK_CUSTOM_HOST_NAME, BLYNK_CUSTOM_PORT);
     Blynk.connect();
+    blynkTimer.setInterval(1000L, watchSignalStrength);
 }
 
 void runBlynk()
 {
     Blynk.run();
+    blynkTimer.run();
 }
 
 void testBlynk()
 {
-    Blynk.virtualWrite(V0, "K3-Miaww v2.2");
+    char version[64];
+    sniprintf(version, sizeof(version), "v%s", VERSION);
+    Blynk.virtualWrite(V0, version);
     delay(1000);
 }
 

@@ -3,4 +3,8 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-src/iot/credentials.h
+src/**/credentials*
+.version_no_increment
+
+# Ignore the platformio_version_increment submodule directory
+# platformio_version_increment/
