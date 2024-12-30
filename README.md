@@ -66,3 +66,13 @@ Before uploading the firmware, make sure you have connected the ESP32-CAM board 
 
 - To build the firmware, just click the `✓` icon on the bottom toolbar of the VSCode or press `Ctrl + Alt + B` on your keyboard.
 - To upload the firmware, click the `➡` icon on the bottom toolbar of the VSCode or press `Ctrl + Alt + U` on your keyboard.
+
+The build and upload process will take some time, so drink your coffee while waiting :coffee:. If the process is successful, you will see something like this:
+
+![PlatformIO successfully uploaded the firmware](/assets/guide/pio-build-upload-success.png)
+
+## Roadmap
+
+- [ ] Implement websocket server for real-time communication with the client.
+- [ ] Integate the websocket server with a flutter app.
+- [ ] Implement webserial for wireless serial logging.
