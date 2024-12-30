@@ -1,6 +1,6 @@
 # Alat Pemantauan Kucing
 
-## Getting Started
+## :computer: Getting Started
 
 ### Prerequisites
 
@@ -71,7 +71,7 @@ The build and upload process will take some time, so drink your coffee while wai
 
 ![PlatformIO successfully uploaded the firmware](/assets/guide/pio-build-upload-success.png)
 
-## Roadmap
+## :rocket: Roadmap
 
 - [ ] Implement websocket server for real-time communication with the client.
 - [ ] Integate the websocket server with a flutter app.
