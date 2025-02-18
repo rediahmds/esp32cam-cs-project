@@ -8,7 +8,7 @@ void setup()
   Serial.begin(115200);
 
   initWiFi();
-  // initWiFiManually();
+  // initWiFiManually(MANUAL_SSID, MANUAL_PASSWORD);
   initBlynk();
   initCam();
 
