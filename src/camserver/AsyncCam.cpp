@@ -5,7 +5,7 @@
 
 using namespace esp32cam;
 
-Resolution initialResolution = esp32cam::Resolution::find(800, 600);
+Resolution initialResolution = esp32cam::Resolution::find(1280, 720);
 Resolution currentResolution = initialResolution;
 
 AsyncWebServer server(80);
