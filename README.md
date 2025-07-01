@@ -5,7 +5,7 @@
 ### Prerequisites
 
 - [Visual Studio Code (VSCode)](https://code.visualstudio.com/) installed on your computer.
-- PlatformIO extension installed on your VSCode. You can follow the installation guide [here](https://platformio.org/install/ide?install=vscode).
+- [PlatformIO](https://platformio.org/) extension installed on your VSCode. You can follow the installation guide [here](https://platformio.org/install/ide?install=vscode).
 
 > [!NOTE]
 For first time user, it might take some time to install the required tools and dependencies, so prepare a cup of coffee while waiting :coffee:.
