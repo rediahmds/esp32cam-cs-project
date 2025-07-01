@@ -1,6 +1,6 @@
 # Alat Pemantauan Kucing
 
-## :computer: Getting Started
+## :computer: How to clone the project
 
 ### Prerequisites
 
